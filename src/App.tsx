@@ -1,4 +1,4 @@
-import './app.css';
+import './app.scss';
 
 import React, { useEffect, useState } from 'react';
 
@@ -12,6 +12,7 @@ import LoaderComponent from './components/loader/loader.component';
 import { fetchData } from './components/main/api';
 import Main from './components/main/Main';
 import Sidebar from './components/sidebar/Sidebar';
+import { createImageUrl } from './helper';
 
 const Fade = require('react-reveal/Fade');
 
@@ -31,16 +32,16 @@ function App() {
                         item.country !== 'United Kingdom'
                             ? {
                                   ...item,
-                                  flag: '/assets/' + item.country + '.png',
+                                  flag: createImageUrl(item.country),
                               }
-                            : {...item, flag: '/assets/Uk.png'},
+                            : {...item, flag: createImageUrl('Uk')},
                     ),
                 );
 
                 setSources(
                     data.top_sources.map((item) => ({
                         ...item,
-                        logo: '/assets/' + item.source + '.png',
+                        logo: createImageUrl(item.source),
                     })),
                 );
 

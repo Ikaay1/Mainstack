@@ -66,3 +66,9 @@ export interface DataInterface {
         percent: number;
     }[];
 }
+
+export interface SidebarDataInterface {
+    image: string;
+    name: string;
+    key: string | number;
+}

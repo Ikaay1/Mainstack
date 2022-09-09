@@ -62,7 +62,7 @@ Testing basically helps you spot bugs on time. The more tests I write, the more 
 
    ```
    git clone https://github.com/Ikaay1/mainstack.git
-   cd mini-mart
+   cd mainstack
    ```
 
 3. Install all dependencies

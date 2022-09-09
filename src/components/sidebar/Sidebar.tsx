@@ -1,23 +1,20 @@
-import './sidebar.css';
+import './sidebar.scss';
 
-import React from 'react';
+import React, { FC } from 'react';
 import { ImCancelCircle } from 'react-icons/im';
 
-import dashboard from '../../assets/dashboard.png';
-import user from '../../assets/image.png';
-import mainstack from '../../assets/mainstack-logo.png';
 import { data1, data2, data3 } from '../../data';
+import { createImageUrl } from '../../helper';
 
-const Sidebar = ({
-    setShow,
-}: {
+type SidebarProps = {
     setShow: React.Dispatch<React.SetStateAction<Boolean>>;
-}) => {
-    const Display = (props: {image: string; name: string}) => {
+};
+const Sidebar: FC<SidebarProps> = ({setShow}) => {
+    const sidebarData = (image: string, name: string) => {
         return (
             <>
-                <img src={props.image} alt='' />
-                <span>{props.name}</span>
+                <img src={image} alt='' />
+                <span>{name}</span>
             </>
         );
     };
@@ -25,7 +22,11 @@ const Sidebar = ({
     return (
         <div>
             <div className='close-div'>
-                <img className='logo' src={mainstack} alt='' />
+                <img
+                    className='logo'
+                    src={createImageUrl('mainstack-logo')}
+                    alt=''
+                />
                 <div className='close' onClick={() => setShow(false)}>
                     <ImCancelCircle />
                 </div>
@@ -33,11 +34,14 @@ const Sidebar = ({
             <div>
                 <div>
                     <div className='dashboard-link'>
-                        <Display image={dashboard} name={'Dashboard'} />
+                        {sidebarData(
+                            createImageUrl('dashboard'),
+                            'Dashboard',
+                        )}
                     </div>
                     {data1.map(({key, image, name}) => (
                         <div className='item-link' key={key}>
-                            <Display image={image} name={name} />
+                            {sidebarData(image, name)}
                         </div>
                     ))}
                 </div>
@@ -45,7 +49,7 @@ const Sidebar = ({
                     <p>Others 1</p>
                     {data2.map(({key, image, name}) => (
                         <div className='item-link' key={key}>
-                            <Display image={image} name={name} />
+                            {sidebarData(image, name)}
                         </div>
                     ))}
                 </div>
@@ -53,13 +57,14 @@ const Sidebar = ({
                     <p>Others 2</p>
                     {data3.map(({key, image, name}) => (
                         <div className='item-link' key={key}>
-                            <Display image={image} name={name} />
+                            {sidebarData(image, name)}
                         </div>
                     ))}
                 </div>
             </div>
             <div className='user'>
-                <Display image={user} name={'Blessing Daniels'} />
+                {sidebarData(createImageUrl('user'), 'Blessing Daniels',
+                )}
             </div>
         </div>
     );
