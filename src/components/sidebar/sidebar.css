@@ -1,0 +1,79 @@
+.close {
+    display: none;
+}
+
+.logo {
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.dashboard-link,
+.item-link,
+.user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.35rem;
+    cursor: pointer;
+}
+
+.user {
+    margin-bottom: 0;
+    margin-top: 10rem;
+}
+
+.dashboard-link > img,
+.item-link > img,
+.user > img {
+    margin-right: 0.55rem;
+}
+
+.dashboard-link > span {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 16px;
+    color: #ff5403;
+    font-weight: 600;
+}
+
+.item-link > span {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 16px;
+    color: #4d5760;
+}
+
+.other > p {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: #4d5760;
+    text-transform: uppercase;
+    margin-bottom: 1.35rem;
+    margin-top: 2rem;
+}
+
+.user > img {
+    border: 1px solid;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+}
+
+.user > span {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 15px;
+    line-height: 16px;
+    color: #4d5760;
+}
+
+@media screen and (max-width: 700px) {
+    .close-div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .close {
+        display: block;
+        margin-bottom: 2rem;
+        cursor: pointer;
+    }
+}

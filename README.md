@@ -1,46 +1,92 @@
-# Getting Started with Create React App
+## Mainstack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Dashboard page of a mini web application.
 
-## Available Scripts
+Built with Javascript(ES6) and ReactJs.
+For demo, visit https://mainstack-ikaay.netlify.app
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- View locations of some countries via pie chart
+- Display the page views on a line graph
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- ReactJs: for handling our single-page application's user interface(view layer)
+- Typescript: for static/strong typing
+- [`react-reveal`](https://www.npmjs.com/package/react-reveal): for sidebar display animations
+- [`react-loader-spinner`](https://www.npmjs.com/package/react-loader-spinner): for showing loading animation while fetching data from API
+- [`react-chartjs-2`](https://www.npmjs.com/package/react-chartjs-2): for implementing the line graph and pie chart
+- [`react-icons`](https://www.npmjs.com/package/react-icons): for sidebar icons on mobile view
+- SCSS: for better css styling approach
 
-### `npm test`
+## Implementation process
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Architecture: Package-By-Feature
+- Cors-anywhere implementation: [`cors-anywhere`](https://github.com/Rob--W/cors-anywhere.git)
 
-### `npm run build`
+The whole process of building this React App involves the following stages:-
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Design/ Planning
+2. Building a static version of the app
+3. Setting up API and configuring proxy for API
+4. Testing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### 1. The Design/Planning stage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ideally, I needed to divided the components in such a way that one component only has a single functionality. I also needed to account for component re-usability Eg. components for displaying error messages or app loading state.
+Since the app is thought to be a basic one, I had two(2) top level components in mind for the UI design:
 
-### `npm run eject`
+- Sidebar component: a view showing the navigation links.
+- Main component: a view showing the implemented pie charts and line graph, the data gotten from the API.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### 2. Building a static version of the app
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This stage is just about building the folder structure(see image below), creating the components, adding styling, populating the components with mock data. I created the components using a top to down approach - starting with bigger encapsulating one to smaller(least) ones. <br>
+For me, main objective in this stage was to build the structure of the app and seeing how it would look like with real data, without having to worry about handling data and interactivity yet.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### 3. Setting up API and configuring proxy for API
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+In this stage, I setup my api logic to retrieve list of countries, sources, and views from the specified hosted backend. However, due to cors issue from the backend api, I had to, in addition, setup a proxy configuration using `Cors-anywhere` implementation. <br />
+The process involved cloning the `cors-anywhere repository`, installing the dependencies, hosing it on heroku, then inserting the link derived at the front ofthe given backend-link.
 
-## Learn More
+#### 4. Testing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Testing basically helps you spot bugs on time. The more tests I write, the more confidence I have with my code. There are a few types/categories of testing code or an apps functionality. They include end-to-end, integration, unit tests, etc. They image below shows an example of a unit(component) test I wrote.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Installation
+
+1. Install [`node`](https://nodejs.org/en/download/), version 6 or greater
+
+2. Clone the repo and cd into it
+
+   ```
+   git clone https://github.com/Ikaay1/mainstack.git
+   cd mini-mart
+   ```
+
+3. Install all dependencies
+
+   ```
+   npm install
+   ```
+
+4. Start the app
+
+   ```
+   npm start
+   ```
+
+5. Open running application
+
+   ```
+   http://localhost:3000/ or the specified url from the terminal
+   ```
+
+## Testing
+
+> - `npm test`
+
+## Author
+
+- **Mgbemele Ikechukwu** - Software Developer and Soccer freak.
